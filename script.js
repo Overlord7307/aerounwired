@@ -2,7 +2,11 @@ const viewport = document.getElementById('cards-viewport');
 const track = document.getElementById('cards-track');
 const cards = track.querySelectorAll('.event-card');
 
+<<<<<<< HEAD
 let activeIndex = 1;
+=======
+let activeIndex = 1; // start on card 3
+>>>>>>> upstream/main
 
 function centerActive() {
   cards.forEach(c => c.classList.remove('active'));

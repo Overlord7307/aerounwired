@@ -23,6 +23,7 @@ nav {
   margin-right: 15vw;
   margin-left: 5vw;
   padding-top: 4vh;
+<<<<<<< HEAD
 }
 
 @media (max-width: 390px) {
@@ -33,6 +34,9 @@ nav {
   }
 }
 
+=======
+}   
+>>>>>>> upstream/main
 .nav-center {
   flex: 0 1 auto;
   display: flex;
@@ -391,7 +395,11 @@ section {
 .eventimage{
   position: relative;
   top: 10%;
+<<<<<<< HEAD
   width: 75%;
+=======
+  width: 90%;
+>>>>>>> upstream/main
   margin: auto;
   border-radius: 20px;
   overflow: hidden;
@@ -402,13 +410,23 @@ section {
 }
 .workshopName
 {
+<<<<<<< HEAD
   font-size: 30px;
+=======
+  font-size: 40px;
+>>>>>>> upstream/main
   position: relative;
   top: 15%;
   width: 80%;
   text-align: center;
   margin: auto;
   font-family: "Lexend",sans-serif;
+<<<<<<< HEAD
+=======
+
+  
+}
+>>>>>>> upstream/main
 
   
 }
