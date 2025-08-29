@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEROUNWIRED</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Your CSS with the sidebar rules that target nav/.nav-center/.hamburger -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hamburger (matches .hamburger in your CSS) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Sidebar (matches 'nav' selector in your CSS) -->
+  <nav id="sidebar" role="navigation">
+    <img src="logo.png" class="logo" alt="Aerounwired logo" />
+    <div class="nav-center">
+      <!-- Use in-page anchors for a single-page flow -->
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#events">EVENTS</a>
+      <a href="#achievements">ACHIEVEMENTS</a>
+      <a href="#gallery">GALLERY</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <h1 class="name">CLUB <span>AERO</span>UNWIRED</h1>
+    <h5 id="moto">WINGS OF INNOVATION <br> HEART OF AVIATION</h5>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="about-layer">
+      <h1>ABOUT US</h1>
+      <p>
+        We are the Aeromodelling Club of NIT Calicut, a vibrant community of enthusiasts passionate about the science and art of flight.
+        Our club brings together students who design, build, and fly a wide range of aerial vehicles, including planes, drones, and model rockets.
+        Our aim is to promote hands-on learning and innovation in aeromodelling and aerospace engineering.
+        Through workshops, projects, and competitions, we encourage creativity, technical skill development, and teamwork.
+      </p>
+      <button class="view-more">EXPLORE</button>
+    </div>
+  </section>
+
+  <!-- ===== EVENTS ===== -->
+  <section id="events">
+    <h1>EVENTS</h1>
+    <div class="slider-container">
+      <button class="control-btn prev-btn" onclick="prev()">◀</button>
+      <div class="cards-viewport" id="cards-viewport">
+        <div class="cards-track" id="cards-track">
+          <!-- Event cards injected by event.js -->
+        </div>
+      </div>
+      <button class="control-btn next-btn" onclick="next()">▶</button>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS (optional anchor target) ===== -->
+  <section id="achievements" aria-label="Achievements" style="min-height: 20vh; display:flex; align-items:center; justify-content:center; color:white;">
+    <!-- Add your achievements content here or remove this section if not needed -->
+    <p style="opacity:.6">Achievements section placeholder</p>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery">
+    <h1>GALLERY</h1>
+    <div class="gallery">
+      <div class="picture">
+        <a target="_blank" href="gallery/drone.png">
+          <img src="gallery/drone.png" alt="Custom drone build">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/icarus.png">
+          <img src="gallery/icarus.png" alt="Icarus aircraft project">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/Rectangle 33.png">
+          <img src="gallery/Rectangle 33.png" alt="Prototype frame">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/Rectangle 39.png">
+          <img src="gallery/Rectangle 39.png" alt="Workshop moment">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/Rectangle 40.png">
+          <img src="gallery/Rectangle 40.png" alt="Demo flight prep">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/Rectangle 42.png">
+          <img src="gallery/Rectangle 42.png" alt="Assembly session">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/rocket.png">
+          <img src="gallery/rocket.png" alt="Model rocket launch">
+        </a>
+      </div>
+      <div class="picture">
+        <a target="_blank" href="gallery/Rectangle 36.png">
+          <img src="gallery/Rectangle 36.png" alt="Event showcase">
+        </a>
+      </div>
+    </div>
+
+    <button class="view-more">
+      <a href="gallery.html" style="text-decoration:none; color:white;">VIEW MORE</a>
+    </button>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="foot">
+      <img class="footer-logo" src="logo.png" alt="Aerounwired logo">
+    </div>
+  </footer>
+
+  <!-- Scripts (your existing ones) -->
+  <script src="event.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Sidebar toggle + close-on-click/ESC -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('sidebar');
+
+    function closeNav() {
+      nav.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.addEventListener('click', () => {
+      const willOpen = !nav.classList.contains('active');
+      nav.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    // Close sidebar when a link is clicked (better UX on mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeNav);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+  </script>
+</body>
+</html>
